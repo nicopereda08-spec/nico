@@ -164,15 +164,16 @@ SCENES = [  # (fn, seconds)
     (s_rules, 4.6), (s_punch, 4.4), (s_close, 4.2), (s_test, 4.6),
 ]
 
-def render(lang):
+def render(lang, durs=None, out=None):
     L = TEXT[lang]
     os.makedirs("out", exist_ok=True)
-    out = f"out/video_{lang}.mp4"
+    out = out or f"out/video_{lang}.mp4"
+    scenes = [(fn, durs[i] if durs else dur) for i, (fn, dur) in enumerate(SCENES)]
     p = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
                           "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
                           "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", "-movflags", "+faststart", out],
                          stdin=subprocess.PIPE)
-    for fn, dur in SCENES:
+    for fn, dur in scenes:
         for k in range(int(dur * FPS)):
             t = k / FPS
             img = Image.new("RGB", (W, H), BG)
@@ -184,7 +185,7 @@ def render(lang):
             img = Image.blend(img, layer, a) if a < 1 else layer
             p.stdin.write(img.tobytes())
     p.stdin.close(); p.wait()
-    print(out, sum(d for _, d in SCENES), "s")
+    print(out, round(sum(d for _, d in scenes), 1), "s")
 
 if __name__ == "__main__":
     for lang in (sys.argv[1:] or ["es", "en"]):
