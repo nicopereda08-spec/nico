@@ -1,0 +1,20 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:Inter;src:url(fonts/Inter-ExtraBold.otf);font-weight:800}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1920px;font-family:Inter;background:transparent;overflow:hidden;position:relative}
+body.bg{background:radial-gradient(ellipse at 50% 18%,#3b1d6e 0%,#1a0f33 40%,#09070f 75%)}
+body.bg::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(0,0,0,.25) 0 40px,rgba(255,255,255,.02) 40px 90px);opacity:.6}
+.lid{position:absolute;left:30px;top:640px;width:1020px;height:604px;border-radius:30px 30px 6px 6px;background:#0d0d10;box-shadow:0 0 0 3px #3a3a42,0 40px 120px rgba(120,60,255,.25)}
+.deck{position:absolute;left:0;top:1244px;width:1080px;height:520px;clip-path:polygon(4% 0,96% 0,100% 100%,0 100%);
+  background:linear-gradient(180deg,#8d8d96 0%,#55555d 30%,#2a2a30 100%)}
+.keys{position:absolute;left:120px;top:1290px;width:840px;height:300px;clip-path:polygon(2% 0,98% 0,100% 100%,0 100%);
+  background:repeating-linear-gradient(90deg,#141418 0 58px,#2e2e36 58px 62px),#141418;box-shadow:0 0 30px rgba(110,80,255,.35) inset;opacity:.9}
+.keys::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 56px,#2e2e36 56px 60px)}
+.pad{position:absolute;left:340px;top:1620px;width:400px;height:150px;border-radius:14px;background:rgba(255,255,255,.08)}
+.cap{position:absolute;left:0;right:0;top:330px;text-align:center;color:#fff;font-size:76px;font-weight:800;letter-spacing:-0.02em;
+  text-shadow:0 4px 18px rgba(0,0,0,.6)}
+.hole{position:absolute;left:50px;top:660px;width:980px;height:551px;background:#000}
+</style></head><body class="MODE">
+<div class="lid"></div><div class="deck"></div><div class="keys"></div><div class="pad"></div>
+<div class="cap">Mis padres vs la IA 😮‍💨</div>
+</body></html>

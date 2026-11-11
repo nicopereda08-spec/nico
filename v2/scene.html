@@ -1,0 +1,291 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Inter;src:url(fonts/Inter-Medium.otf);font-weight:500}
+@font-face{font-family:Inter;src:url(fonts/Inter-SemiBold.otf);font-weight:600}
+@font-face{font-family:Inter;src:url(fonts/Inter-Bold.otf);font-weight:700}
+@font-face{font-family:Inter;src:url(fonts/Inter-ExtraBold.otf);font-weight:800}
+@font-face{font-family:Serif;src:url(fonts/instrument-serif-latin-400-italic.woff2);font-style:italic}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#000;font-family:Inter,sans-serif;letter-spacing:-0.02em}
+.scene{position:absolute;inset:0;overflow:hidden;opacity:0}
+.light{background:radial-gradient(ellipse at 50% 40%,#f7f7f9 0%,#e9e9ee 60%,#d9d9e0 100%);color:#1d1d1f}
+.dark{background:radial-gradient(ellipse at 50% 45%,#16161c 0%,#08080b 70%);color:#f5f5f7}
+.cam{position:absolute;inset:0;transform-style:preserve-3d}
+.cap{position:absolute;left:0;right:0;top:120px;text-align:center;font-size:64px;font-weight:600}
+.cap span{display:inline-block;margin:0 .13em}
+.ball{position:absolute;border-radius:50%;
+  background:radial-gradient(circle at 34% 28%,#ffd2b3 0%,#ff8a4c 18%,#ff5a1f 45%,#d9400c 75%,#9e2a05 100%);
+  box-shadow:0 40px 80px -20px rgba(200,60,10,.45), inset -20px -30px 60px rgba(120,20,0,.35)}
+.ball .lab{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;text-shadow:0 2px 10px rgba(120,20,0,.4)}
+.dot{width:34px;height:34px}
+.serif{font-family:Serif;font-style:italic;font-weight:400;letter-spacing:0}
+.card{position:absolute;background:rgba(255,255,255,.92);border-radius:28px;
+  box-shadow:0 30px 70px -20px rgba(20,20,40,.28),0 0 0 1px rgba(0,0,0,.04)}
+.glass{position:absolute;background:rgba(40,40,52,.75);border:1px solid rgba(255,255,255,.12);border-radius:22px;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.8);color:#f5f5f7;font-weight:600;display:flex;align-items:center;gap:22px;padding:0 34px}
+.key{background:rgba(255,255,255,.1);border-radius:12px;padding:8px 16px;font-weight:700;color:#ff8a4c}
+.pill{position:absolute;border-radius:999px;
+  background:linear-gradient(180deg,#ff7a3d 0%,#ff5a1f 50%,#e0450f 100%);
+  box-shadow:0 30px 60px -18px rgba(220,70,10,.6), inset 0 3px 0 rgba(255,255,255,.35), inset 0 -6px 14px rgba(140,30,0,.35);
+  color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+.star{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff}
+.bub{position:absolute;padding:26px 34px;border-radius:30px;font-size:38px;font-weight:600;max-width:1060px;line-height:1.25}
+.me{background:#e8e8ed;color:#1d1d1f;border-bottom-right-radius:8px}
+.ai{background:#fff;color:#1d1d1f;border:2px solid #ff6a2b;border-bottom-left-radius:8px;box-shadow:0 20px 50px -20px rgba(220,80,20,.35)}
+.chip{position:absolute;font-size:44px;font-weight:800;color:#e0301e}
+.row{position:absolute;left:640px;display:flex;align-items:center;gap:36px;font-size:54px;font-weight:700}
+.check{width:64px;height:64px;border-radius:50%;background:#ff5a1f;color:#fff;display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:800;
+  box-shadow:0 14px 30px -10px rgba(220,70,10,.6)}
+</style></head>
+<body>
+<!-- SC1 -->
+<div class="scene light" id="sc1"><div class="cam">
+  <div class="cap" id="c_age"></div><div class="cap" id="c_parents"></div>
+  <div class="ball" id="b18" style="width:380px;height:380px"><div class="lab" id="b18l" style="font-size:150px">18</div></div>
+  <div id="minus" style="position:absolute;font-size:56px;font-weight:800;color:#e0301e"></div>
+</div></div>
+<!-- SC2 -->
+<div class="scene dark" id="sc2"><div class="cam" id="stars2">
+  <div class="cap" id="c_wrong" style="color:#f5f5f7"></div>
+  <div class="glass" id="g1" style="font-size:46px;height:120px"><span class="key">⌘C</span>Copiar</div>
+  <div class="glass" id="g2" style="font-size:46px;height:120px"><span class="key">⌘V</span>Pegar</div>
+  <div class="glass" id="g3" style="font-size:46px;height:120px"><span class="key">↗</span>Entregar</div>
+  <div id="zero" style="position:absolute;left:0;right:0;top:470px;text-align:center;font-size:190px;font-weight:800;letter-spacing:-0.05em">
+    <span style="color:#ff5a1f">0</span> ideas <span class="serif" style="color:#ff8a4c;font-size:220px">tuyas.</span></div>
+</div></div>
+<!-- SC3 -->
+<div class="scene light" id="sc3"><div class="cam">
+  <div class="cap" id="c_but"></div>
+  <div id="track" style="position:absolute;left:460px;top:500px;width:1000px;height:170px;border-radius:999px;background:#dcdce2;box-shadow:inset 0 6px 18px rgba(0,0,0,.12)">
+    <div id="tfill" style="position:absolute;inset:0;border-radius:999px;background:linear-gradient(180deg,#ff7a3d,#e0450f);opacity:0"></div>
+    <div id="tlab1" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding-left:120px;font-size:48px;font-weight:700;color:#8e8e93">Que piense por mí</div>
+    <div id="tlab2" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding-right:120px;font-size:48px;font-weight:700;color:#fff;opacity:0">Que me haga pensar</div>
+    <div id="knob" style="position:absolute;top:15px;left:15px;width:140px;height:140px;border-radius:50%;background:linear-gradient(180deg,#fff,#ececf0);box-shadow:0 10px 24px rgba(0,0,0,.25)"></div>
+  </div>
+</div></div>
+<!-- SC4 -->
+<div class="scene light" id="sc4"><div class="cam">
+  <div class="cap" id="c_idea"></div><div class="cap" id="c_destroy"></div>
+  <div class="card" id="win" style="left:360px;top:280px;width:1200px;height:700px">
+    <div style="height:64px;border-bottom:1px solid #eee;display:flex;align-items:center;gap:12px;padding-left:28px">
+      <i style="width:16px;height:16px;border-radius:50%;background:#ff5f57"></i><i style="width:16px;height:16px;border-radius:50%;background:#febc2e"></i><i style="width:16px;height:16px;border-radius:50%;background:#28c840"></i>
+    </div>
+    <div class="bub me" id="m1" style="right:40px;top:100px">Quiero revender colonias online 🚀</div>
+    <div class="bub ai" id="a1" style="left:40px;top:240px">¿Tu margen después de envíos y comisiones?</div>
+    <div class="bub ai" id="a2" style="left:40px;top:370px">¿Por qué te comprarían a ti y no a una tienda grande?</div>
+    <div class="bub ai" id="a3" style="left:40px;top:500px">¿Cuánto te cuesta cada cliente?</div>
+  </div>
+</div></div>
+<!-- SC5 -->
+<div class="scene light" id="sc5"><div class="cam">
+  <div class="cap" id="c_forty"></div><div class="cap" id="c_nine"></div>
+  <div id="mlab" style="position:absolute;left:0;right:0;top:360px;text-align:center;font-size:44px;font-weight:600;color:#8e8e93"></div>
+  <div class="pill" id="mpill" style="left:610px;top:450px;width:700px;height:300px;font-size:200px"></div>
+  <div class="chip" id="ch1">− envíos</div><div class="chip" id="ch2">− comisiones</div><div class="chip" id="ch3">− devoluciones</div>
+  <svg id="ring" width="900" height="420" style="position:absolute;left:510px;top:390px;overflow:visible">
+    <ellipse cx="450" cy="210" rx="430" ry="190" fill="none" stroke="#1d1d1f" stroke-width="5" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" id="ringp"/></svg>
+  <div id="real" style="position:absolute;left:1240px;top:390px;font-size:76px;font-weight:800;color:#e0301e;border:7px solid #e0301e;border-radius:16px;padding:2px 22px;transform:rotate(-12deg);opacity:0">REAL</div>
+</div></div>
+<!-- SC6 -->
+<div class="scene light" id="sc6"><div class="cam">
+  <div class="cap" id="c_argue"></div><div class="cap" id="c_explain"></div><div class="cap" id="c_excuses"></div>
+  <div class="row" id="r1" style="top:380px"><div class="check">✓</div>Llevarme la contraria</div>
+  <div class="row" id="r2" style="top:540px"><div class="check">✓</div>Explicar, <span class="serif" style="font-size:66px;color:#ff5a1f">no hacer</span></div>
+  <div class="row" id="r3" style="top:700px"><div class="check">✓</div>Pillar mis excusas</div>
+  <div class="ball" id="tap" style="width:110px;height:110px"></div>
+  <div id="taptxt" style="position:absolute;font-size:30px;font-weight:600;color:#8e8e93">tap tap</div>
+</div></div>
+<!-- SC7 -->
+<div class="scene dark" id="sc7"><div class="cam" id="stars7">
+  <div class="cap" id="c_notless" style="top:330px;font-size:84px;font-weight:700"></div>
+  <div class="cap" id="c_more" style="top:520px;font-size:84px;font-weight:700"></div>
+</div></div>
+<!-- SC8 -->
+<div class="scene light" id="sc8"><div class="cam">
+  <div class="cap" id="c_test"></div>
+  <div class="pill" id="ask" style="left:560px;top:470px;width:800px;height:190px;font-size:66px">Pregúntame.</div>
+  <svg id="cursor" width="60" height="80" viewBox="0 0 24 32" style="position:absolute;filter:drop-shadow(0 6px 10px rgba(0,0,0,.3))">
+    <path d="M2 2 L2 26 L8 20 L12 30 L16 28 L12 18 L20 18 Z" fill="#111" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>
+</div></div>
+<div id="fade" style="position:absolute;inset:0;background:#000;opacity:0;pointer-events:none"></div>
+
+<script>
+let TL = null;
+const B = {};
+const $ = id => document.getElementById(id);
+const clamp = (x,a=0,b=1) => Math.max(a,Math.min(b,x));
+const P = (t,a,b) => clamp((t-a)/(b-a));
+const eo = x => 1-Math.pow(1-clamp(x),3);
+const eback = x => { x=clamp(x); const c=1.9; return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2); };
+const lerp = (a,b,x) => a+(b-a)*x;
+const css = (el, o) => { for (const k in o) el.style[k]=o[k]; };
+
+// accent words get the orange serif treatment in captions
+const ACCENT = {"menos.":1,"razón.":1,"así.":1,"destroza.":1,"9%.":1,"contraria.":1,"excusas.":1,"más.":1,"aprendido.":1};
+function buildCap(id, beat, dark){
+  const el = $("c_"+id) || document.createElement("div");
+  const words = beat.text.split(" ");
+  let total = beat.text.length, acc = 0;
+  el.innerHTML = "";
+  beat.words = words.map(w => {
+    const sp = document.createElement("span");
+    sp.textContent = w;
+    if (ACCENT[w]) { sp.className="serif"; sp.style.fontSize="1.25em"; sp.style.color="#ff5a1f"; }
+    el.appendChild(sp);
+    const at = beat.s + (acc/total)*(beat.e-beat.s)*0.92; acc += w.length+1;
+    return {sp, at, accent: !!ACCENT[w]};
+  });
+  beat.dark = dark;
+}
+function drawCap(id, t, hideAt){
+  const b = B[id], el = $("c_"+id); if(!el) return;
+  const vis = t >= b.s-0.15 && (hideAt===undefined || t < hideAt);
+  el.style.opacity = vis ? (hideAt!==undefined ? 1-P(t,hideAt-0.15,hideAt) : 1) : 0;
+  const dim = b.dark ? "rgba(255,255,255,.22)" : "rgba(29,29,31,.18)";
+  const full = b.dark ? "#f5f5f7" : "#1d1d1f";
+  for (const w of b.words){
+    const p = eo(P(t, w.at-0.04, w.at+0.18));
+    if(!w.accent) w.sp.style.color = p>0.5 ? full : dim;
+    else w.sp.style.opacity = 0.15+0.85*p;
+    w.sp.style.transform = `translateY(${(1-p)*14}px)`;
+    w.sp.style.filter = `blur(${(1-p)*4}px)`;
+  }
+}
+function stars(cont, n, seed){
+  let s=seed; const r=()=> (s=(s*9301+49297)%233280)/233280;
+  for(let i=0;i<n;i++){ const d=document.createElement("div"); d.className="star";
+    css(d,{left:r()*1920+"px",top:r()*1080+"px",opacity:.2+r()*.6}); d.dataset.tw=r()*6; cont.appendChild(d);} }
+function dots(cont, seed){
+  const pos=[[90,180],[1800,140],[160,900],[1760,860],[1500,420],[300,520]];
+  pos.forEach((p,i)=>{const d=document.createElement("div"); d.className="ball dot"; d.dataset.i=i;
+    css(d,{left:p[0]+"px",top:p[1]+"px"}); cont.appendChild(d);});
+}
+// scene windows: [id, start beat, end beat]
+const SCENES = [["sc1","age","parents"],["sc2","wrong","zero"],["sc3","but","but"],["sc4","idea","destroy"],
+                ["sc5","forty","nine"],["sc6","argue","excuses"],["sc7","notless","more"],["sc8","test",null]];
+function sceneSpan(i){
+  const [, a] = SCENES[i];
+  const s = i===0 ? 0 : B[a].s - 0.12;
+  const e = i===SCENES.length-1 ? TL.total : B[SCENES[i+1][1]].s - 0.12;
+  return [s,e];
+}
+
+function init(tl){
+  TL = tl; tl.beats.forEach(b => B[b.id]=b);
+  const darkIds = new Set(["wrong","copy","zero","notless","more"]);
+  tl.beats.forEach(b => buildCap(b.id, b, darkIds.has(b.id)));
+  stars($("stars2"),90,7); stars($("stars7"),90,3);
+  document.querySelectorAll(".light .cam").forEach((c,i)=>dots(c,i));
+}
+
+function seek(t){
+  // --- scene visibility + camera drift ---
+  SCENES.forEach((sc,i)=>{
+    const [s,e] = sceneSpan(i), el=$(sc[0]);
+    const inn = i===0 ? 1 : eo(P(t,s,s+0.3)), out = 1-P(t,e-0.06,e);
+    const on = t>=s && t<e;
+    el.style.opacity = on ? Math.min(inn,1)*(out<1?out:1) : 0;
+    el.style.display = on ? "block" : "none";
+    if(!on) return;
+    const p = P(t,s,e), k=(1-inn);
+    el.querySelector(".cam").style.transform =
+      `perspective(1800px) rotateX(${lerp(5,-3,p)}deg) rotateY(${lerp(-5,5,p)}deg) scale(${1.0+0.06*p+0.08*k})`;
+    el.style.filter = `blur(${k*14}px)`;
+  });
+  // floating background dots
+  document.querySelectorAll(".dot").forEach(d=>{const i=+d.dataset.i;
+    d.style.transform=`translate(${Math.sin(t*0.7+i)*14}px,${Math.cos(t*0.9+i*2)*18}px) scale(${0.8+0.3*Math.sin(i)})`;});
+  document.querySelectorAll(".star").forEach(d=>{d.style.opacity = 0.25+0.5*Math.abs(Math.sin(t*0.8+ +d.dataset.tw));});
+
+  // --- SC1: 18 ball, then it becomes your brain and shrinks ---
+  drawCap("age",t,B.parents.s-0.05); drawCap("parents",t);
+  { const pop = eback(P(t,B.age.s,B.age.s+0.6));
+    const w = B.parents.words, shrink = eo(P(t, w[w.length-2].at, w[w.length-1].at+0.6));
+    const sz = 380*pop*lerp(1,0.42,shrink);
+    const lab = $("b18l"), toBrain = P(t,B.parents.s+0.3,B.parents.s+0.6);
+    lab.textContent = toBrain>0.5 ? "cerebro" : "18";
+    lab.style.fontSize = (toBrain>0.5 ? 64*lerp(1,0.42,shrink) : 150*pop)+"px";
+    lab.style.opacity = Math.abs(toBrain-0.5)*2;
+    css($("b18"),{width:sz+"px",height:sz+"px",left:(960-sz/2)+"px",top:(600-sz/2+Math.sin(t*2)*6)+"px"});
+    const m=P(t,w[w.length-1].at,w[w.length-1].at+1.0);
+    css($("minus"),{left:"1120px",top:(560-60*m)+"px",opacity:m>0&&m<1?Math.sin(m*Math.PI):0}); $("minus").textContent="− 50%"; }
+
+  // --- SC2: copy / paste / submit, zero ideas ---
+  drawCap("wrong",t,B.zero.s-0.05);
+  { const cw = B.copy.words, zs=B.zero.s;
+    [["g1",0,340,-8],["g2",1,500,-2],["g3",2,660,6]].forEach(([id,i,y,rot])=>{
+      const p = eback(P(t,cw[i].at-0.1,cw[i].at+0.35)), gone = eo(P(t,zs-0.1,zs+0.35));
+      css($(id),{left:(560+i*110)+"px",top:(y+ (1-p)*120 + gone*400)+"px",width:"620px",
+        opacity:p*(1-gone), transform:`perspective(900px) rotateY(${-22+rot}deg) rotateZ(${rot*0.4}deg) scale(${0.8+0.2*p})`});
+    });
+    const z = eback(P(t,zs,zs+0.5));
+    css($("zero"),{opacity:clamp(z), transform:`scale(${0.7+0.3*z})`, filter:`blur(${(1-clamp(z))*10}px)`}); }
+
+  // --- SC3: toggle swipe ---
+  drawCap("but",t);
+  { const sw = eo(P(t,B.but.s+0.5,B.but.e+0.1));
+    $("knob").style.left = lerp(15, 1000-155, sw)+"px";
+    $("tfill").style.opacity = sw; $("tlab1").style.opacity = 1-sw*1.6; $("tlab2").style.opacity = clamp(sw*1.6-0.6);
+    const ap = eback(P(t,B.but.s-0.1,B.but.s+0.45)); $("track").style.transform=`scale(${0.85+0.15*ap})`; }
+
+  // --- SC4: chat window ---
+  drawCap("idea",t,B.destroy.s-0.05); drawCap("destroy",t);
+  { const wp = eback(P(t,B.idea.s,B.idea.s+0.6));
+    $("win").style.transform=`translateY(${(1-wp)*160}px) scale(${0.9+0.1*wp})`; $("win").style.opacity=clamp(wp);
+    const iw=B.idea.words; const m = eback(P(t,iw[5].at,iw[5].at+0.4));
+    css($("m1"),{opacity:clamp(m),transform:`translateY(${(1-m)*30}px) scale(${0.9+0.1*m})`});
+    const dw=B.destroy.words, n=dw.length;
+    [["a1",0.15],["a2",0.45],["a3",0.75]].forEach(([id,f])=>{
+      const at = B.destroy.s + f*(B.destroy.e-B.destroy.s) - 0.2, q=eback(P(t,at,at+0.45));
+      css($(id),{opacity:clamp(q),transform:`translateX(${(1-q)*-60}px) scale(${0.9+0.1*q})`}); }); }
+
+  // --- SC5: 40% -> 9% ---
+  drawCap("forty",t,B.nine.s-0.05); drawCap("nine",t);
+  { const fp = eback(P(t,B.forty.s+0.2,B.forty.s+0.8));
+    const ns=B.nine.s, ne=B.nine.e, cnt = eo(P(t,ns+0.2,ne-0.1));
+    const val = Math.round(lerp(40,9,cnt));
+    $("mpill").textContent = val+"%";
+    css($("mpill"),{opacity:clamp(fp),transform:`scale(${(0.6+0.4*fp)*(1-0.06*Math.sin(cnt*Math.PI*6)*(cnt<1?1:0))})`});
+    $("mlab").textContent = cnt>=1 ? "Margen real" : "Margen que creía";
+    $("mlab").style.opacity = clamp(fp);
+    [["ch1",0.1,700],["ch2",0.35,960],["ch3",0.6,1180]].forEach(([id,f,x])=>{
+      const at = ns+f*(ne-ns), c = P(t,at,at+1.1);
+      css($(id),{left:x+"px",top:(560 + c*c*420 - Math.sin(c*Math.PI)*120)+"px",opacity:c>0&&c<1?1-c*c:0,
+        transform:`rotate(${c*(x>900?18:-18)}deg)`}); });
+    const r = eo(P(t,ne-0.05,ne+0.6)); $("ringp").style.strokeDashoffset = 1-r;
+    const st = eback(P(t,ne+0.3,ne+0.6)); css($("real"),{opacity:clamp(st),transform:`rotate(-12deg) scale(${2-st})`}); }
+
+  // --- SC6: checklist with tapping ball ---
+  drawCap("argue",t,B.explain.s-0.05); drawCap("explain",t,B.excuses.s-0.05); drawCap("excuses",t);
+  { const ids=["argue","explain","excuses"], rows=["r1","r2","r3"], ys=[380,540,700];
+    let ty = ys[0], tx=470;
+    ids.forEach((id,i)=>{ const at=B[id].s+0.15, p=eback(P(t,at,at+0.5));
+      css($(rows[i]),{opacity:clamp(p),transform:`translateX(${(1-p)*80}px)`});
+      if(t>=at-0.3) ty = ys[i]; });
+    // bounce: ball hops to the active row
+    let cur = 0; ids.forEach((id,i)=>{ if(t>=B[id].s-0.15) cur=i; });
+    const hopStart = B[ids[cur]].s-0.15, hp = P(t,hopStart,hopStart+0.4);
+    const prevY = ys[Math.max(0,cur-1)], yy = cur===0? ys[0] : lerp(prevY, ys[cur], eo(hp));
+    const bounce = Math.abs(Math.sin(t*7))*18;
+    const tp = eback(P(t,B.argue.s-0.1,B.argue.s+0.4));
+    css($("tap"),{left:tx+"px",top:(yy-24-bounce)+"px",opacity:clamp(tp),transform:`scale(${tp})`});
+    css($("taptxt"),{left:(tx-10)+"px",top:(yy-80)+"px",opacity:clamp(tp)*0.9}); }
+
+  // --- SC7 ---
+  drawCap("notless",t); drawCap("more",t);
+
+  // --- SC8: button + cursor click ---
+  drawCap("test",t);
+  { const bs=B.test.s, ap=eback(P(t,bs+0.2,bs+0.7));
+    const words=B.test.words, clickAt = words[words.length-1].at;
+    const mv = eo(P(t,clickAt-0.9,clickAt-0.1)), press = P(t,clickAt-0.1,clickAt+0.15);
+    const pr = press>0&&press<1 ? Math.sin(press*Math.PI)*0.06 : 0;
+    css($("ask"),{opacity:clamp(ap),transform:`scale(${(0.7+0.3*ap)*(1-pr)})`});
+    css($("cursor"),{left:lerp(1500,1180,mv)+"px",top:lerp(900,600,mv)+"px",opacity:clamp(ap)});
+    const glow = P(t,clickAt,clickAt+0.8);
+    $("ask").style.boxShadow = `0 30px 60px -18px rgba(220,70,10,.6), 0 0 0 ${glow*60}px rgba(255,90,31,${0.35*(1-glow)}), inset 0 3px 0 rgba(255,255,255,.35)`; }
+
+  $("fade").style.opacity = P(t,TL.total-0.6,TL.total);
+}
+</script></body></html>
