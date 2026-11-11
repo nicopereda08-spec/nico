@@ -1,4 +1,4 @@
-"""Step 1: synthesize the Spanish voiceover beat by beat (Kokoro TTS, offline) and write the timeline.
+"""Step 1: synthesize the English voiceover beat by beat (Kokoro TTS, offline) and write the timeline.
 Usage: python3 v2/voice.py <dir with kokoro-v1.0.onnx + voices-v1.0.bin>
 Outputs v2/build/voice.wav and v2/build/timeline.json (start/end of every beat, used by the animation).
 """
@@ -6,26 +6,26 @@ import json, os, sys
 import numpy as np, soundfile as sf
 from kokoro_onnx import Kokoro
 
-VOICE, SPEED, GAP, LEAD, TAIL = "em_alex", 1.08, 0.18, 0.4, 1.4
+VOICE, SPEED, GAP, LEAD, TAIL = "am_michael", 1.05, 0.18, 0.4, 1.4
 
 # id, what the voice says, what appears on screen (None = same words)
 BEATS = [
-    ("age",     "Tengo dieciocho años.", "Tengo 18 años."),
-    ("parents", "Y mis padres creen que la i a me hace pensar menos.", "Y mis padres creen que la IA me hace pensar menos."),
-    ("wrong",   "Y si la usas mal... tienen razón.", "Y si la usas mal… tienen razón."),
-    ("copy",    "Copias. Pegas. Entregas.", None),
-    ("zero",    "Cero ideas tuyas.", None),
-    ("but",     "Pero yo no la uso así.", None),
-    ("idea",    "Le cuento una idea. Por ejemplo, revender colonias.", None),
-    ("destroy", "Y en vez de darme la razón, me la destroza.", None),
-    ("forty",   "Yo pensaba que ganaba un cuarenta por ciento.", "Yo pensaba que ganaba un 40%."),
-    ("nine",    "Después de envíos y comisiones... un nueve.", "Después de envíos y comisiones… un 9%."),
-    ("argue",   "Le pido que me lleve la contraria.", None),
-    ("explain", "Que me explique las cosas, no que me las haga.", None),
-    ("excuses", "Y que me pille las excusas.", None),
-    ("notless", "Eso no es pensar menos.", None),
-    ("more",    "Es pensar con alguien que me exige más.", None),
-    ("test",    "¿No me creéis? Preguntadme lo que he aprendido.", None),
+    ("age",     "I'm eighteen.", "I'm 18."),
+    ("parents", "And my parents think AI makes me think less.", None),
+    ("wrong",   "And if you use it badly... they're right.", "And if you use it badly… they're right."),
+    ("copy",    "Copy. Paste. Submit.", None),
+    ("zero",    "Zero original ideas.", None),
+    ("but",     "But I don't use it like that.", None),
+    ("idea",    "I pitch it an idea. Like reselling cologne.", None),
+    ("destroy", "And instead of agreeing with me, it tears it apart.", None),
+    ("forty",   "I thought my margin was forty percent.", "I thought my margin was 40%."),
+    ("nine",    "After shipping and fees... nine.", "After shipping and fees… 9%."),
+    ("argue",   "I ask it to push back.", None),
+    ("explain", "To explain things, not do them for me.", None),
+    ("excuses", "And to call out my excuses.", None),
+    ("notless", "That's not thinking less.", None),
+    ("more",    "It's thinking with someone who pushes me harder.", None),
+    ("test",    "Don't believe me? Ask me what I've learned.", None),
 ]
 
 def main(model_dir):
@@ -34,7 +34,7 @@ def main(model_dir):
     parts, beats, t, sr = [], [], LEAD, 24000
     parts.append(np.zeros(int(LEAD * sr), dtype=np.float32))
     for bid, say, show in BEATS:
-        a, sr = k.create(say, voice=VOICE, speed=SPEED, lang="es")
+        a, sr = k.create(say, voice=VOICE, speed=SPEED, lang="en-us")
         a = a.astype(np.float32)
         # trim leading/trailing near-silence so beat timing matches the actual words
         idx = np.where(np.abs(a) > 0.01)[0]

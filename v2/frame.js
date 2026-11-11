@@ -11,9 +11,9 @@ const { execFileSync } = require('child_process');
     await page.screenshot({ path: path.join(__dirname, 'build', file), omitBackground: !mode });
   }
   fs.unlinkSync(path.join(__dirname, '_f.html')); await b.close();
-  const out = path.join(__dirname, '..', 'out', 'video_es_v2_vertical.mp4'), B = path.join(__dirname, 'build');
+  const out = path.join(__dirname, '..', 'out', 'video_en_v2_vertical.mp4'), B = path.join(__dirname, 'build');
   execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-loop', '1', '-i', `${B}/bg.png`,
-    '-i', path.join(__dirname, '..', 'out', 'video_es_v2_screen.mp4'), '-loop', '1', '-i', `${B}/cap.png`,
+    '-i', path.join(__dirname, '..', 'out', 'video_en_v2_screen.mp4'), '-loop', '1', '-i', `${B}/cap.png`,
     '-filter_complex', '[1:v]scale=980:551,eq=brightness=0.02:saturation=1.05[s];[0:v][s]overlay=50:660:shortest=1[a];[a][2:v]overlay=0:0:shortest=1,format=yuv420p[v]',
     '-map', '[v]', '-map', '1:a', '-c:v', 'libx264', '-crf', '19', '-c:a', 'copy', '-r', '30', '-movflags', '+faststart', out]);
   console.log(out);

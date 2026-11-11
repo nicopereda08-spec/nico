@@ -1,5 +1,5 @@
 <!doctype html>
-<html><head><meta charset="utf-8">
+<html lang="en"><head><meta charset="utf-8">
 <style>
 @font-face{font-family:Inter;src:url(fonts/Inter-Medium.otf);font-weight:500}
 @font-face{font-family:Inter;src:url(fonts/Inter-SemiBold.otf);font-weight:600}
@@ -48,19 +48,19 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#000;font-family
 <!-- SC2 -->
 <div class="scene dark" id="sc2"><div class="cam" id="stars2">
   <div class="cap" id="c_wrong" style="color:#f5f5f7"></div>
-  <div class="glass" id="g1" style="font-size:46px;height:120px"><span class="key">⌘C</span>Copiar</div>
-  <div class="glass" id="g2" style="font-size:46px;height:120px"><span class="key">⌘V</span>Pegar</div>
-  <div class="glass" id="g3" style="font-size:46px;height:120px"><span class="key">↗</span>Entregar</div>
+  <div class="glass" id="g1" style="font-size:46px;height:120px"><span class="key">⌘C</span>Copy</div>
+  <div class="glass" id="g2" style="font-size:46px;height:120px"><span class="key">⌘V</span>Paste</div>
+  <div class="glass" id="g3" style="font-size:46px;height:120px"><span class="key">↗</span>Submit</div>
   <div id="zero" style="position:absolute;left:0;right:0;top:470px;text-align:center;font-size:190px;font-weight:800;letter-spacing:-0.05em">
-    <span style="color:#ff5a1f">0</span> ideas <span class="serif" style="color:#ff8a4c;font-size:220px">tuyas.</span></div>
+    <span style="color:#ff5a1f">0</span> original <span class="serif" style="color:#ff8a4c;font-size:220px">ideas.</span></div>
 </div></div>
 <!-- SC3 -->
 <div class="scene light" id="sc3"><div class="cam">
   <div class="cap" id="c_but"></div>
   <div id="track" style="position:absolute;left:460px;top:500px;width:1000px;height:170px;border-radius:999px;background:#dcdce2;box-shadow:inset 0 6px 18px rgba(0,0,0,.12)">
     <div id="tfill" style="position:absolute;inset:0;border-radius:999px;background:linear-gradient(180deg,#ff7a3d,#e0450f);opacity:0"></div>
-    <div id="tlab1" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding-left:120px;font-size:48px;font-weight:700;color:#8e8e93">Que piense por mí</div>
-    <div id="tlab2" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding-right:120px;font-size:48px;font-weight:700;color:#fff;opacity:0">Que me haga pensar</div>
+    <div id="tlab1" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding-left:120px;font-size:48px;font-weight:700;color:#8e8e93">It thinks for me</div>
+    <div id="tlab2" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding-right:120px;font-size:48px;font-weight:700;color:#fff;opacity:0">It makes me think</div>
     <div id="knob" style="position:absolute;top:15px;left:15px;width:140px;height:140px;border-radius:50%;background:linear-gradient(180deg,#fff,#ececf0);box-shadow:0 10px 24px rgba(0,0,0,.25)"></div>
   </div>
 </div></div>
@@ -71,10 +71,10 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#000;font-family
     <div style="height:64px;border-bottom:1px solid #eee;display:flex;align-items:center;gap:12px;padding-left:28px">
       <i style="width:16px;height:16px;border-radius:50%;background:#ff5f57"></i><i style="width:16px;height:16px;border-radius:50%;background:#febc2e"></i><i style="width:16px;height:16px;border-radius:50%;background:#28c840"></i>
     </div>
-    <div class="bub me" id="m1" style="right:40px;top:100px">Quiero revender colonias online 🚀</div>
-    <div class="bub ai" id="a1" style="left:40px;top:240px">¿Tu margen después de envíos y comisiones?</div>
-    <div class="bub ai" id="a2" style="left:40px;top:370px">¿Por qué te comprarían a ti y no a una tienda grande?</div>
-    <div class="bub ai" id="a3" style="left:40px;top:500px">¿Cuánto te cuesta cada cliente?</div>
+    <div class="bub me" id="m1" style="right:40px;top:100px">I want to resell cologne online 🚀</div>
+    <div class="bub ai" id="a1" style="left:40px;top:240px">What’s your margin after shipping and fees?</div>
+    <div class="bub ai" id="a2" style="left:40px;top:370px">Why would anyone buy from you, not a big store?</div>
+    <div class="bub ai" id="a3" style="left:40px;top:500px">How much does each customer cost you?</div>
   </div>
 </div></div>
 <!-- SC5 -->
@@ -82,7 +82,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#000;font-family
   <div class="cap" id="c_forty"></div><div class="cap" id="c_nine"></div>
   <div id="mlab" style="position:absolute;left:0;right:0;top:360px;text-align:center;font-size:44px;font-weight:600;color:#8e8e93"></div>
   <div class="pill" id="mpill" style="left:610px;top:450px;width:700px;height:300px;font-size:200px"></div>
-  <div class="chip" id="ch1">− envíos</div><div class="chip" id="ch2">− comisiones</div><div class="chip" id="ch3">− devoluciones</div>
+  <div class="chip" id="ch1">− shipping</div><div class="chip" id="ch2">− fees</div><div class="chip" id="ch3">− returns</div>
   <svg id="ring" width="900" height="420" style="position:absolute;left:510px;top:390px;overflow:visible">
     <ellipse cx="450" cy="210" rx="430" ry="190" fill="none" stroke="#1d1d1f" stroke-width="5" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" id="ringp"/></svg>
   <div id="real" style="position:absolute;left:1240px;top:390px;font-size:76px;font-weight:800;color:#e0301e;border:7px solid #e0301e;border-radius:16px;padding:2px 22px;transform:rotate(-12deg);opacity:0">REAL</div>
@@ -90,21 +90,21 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#000;font-family
 <!-- SC6 -->
 <div class="scene light" id="sc6"><div class="cam">
   <div class="cap" id="c_argue"></div><div class="cap" id="c_explain"></div><div class="cap" id="c_excuses"></div>
-  <div class="row" id="r1" style="top:380px"><div class="check">✓</div>Llevarme la contraria</div>
-  <div class="row" id="r2" style="top:540px"><div class="check">✓</div>Explicar, <span class="serif" style="font-size:66px;color:#ff5a1f">no hacer</span></div>
-  <div class="row" id="r3" style="top:700px"><div class="check">✓</div>Pillar mis excusas</div>
+  <div class="row" id="r1" style="top:380px"><div class="check">✓</div>Push back on me</div>
+  <div class="row" id="r2" style="top:540px"><div class="check">✓</div>Explain, <span class="serif" style="font-size:66px;color:#ff5a1f">don’t do</span></div>
+  <div class="row" id="r3" style="top:700px"><div class="check">✓</div>Call out my excuses</div>
   <div class="ball" id="tap" style="width:110px;height:110px"></div>
   <div id="taptxt" style="position:absolute;font-size:30px;font-weight:600;color:#8e8e93">tap tap</div>
 </div></div>
 <!-- SC7 -->
 <div class="scene dark" id="sc7"><div class="cam" id="stars7">
-  <div class="cap" id="c_notless" style="top:330px;font-size:84px;font-weight:700"></div>
-  <div class="cap" id="c_more" style="top:520px;font-size:84px;font-weight:700"></div>
+  <div class="cap" id="c_notless" style="top:330px;font-size:80px;font-weight:700"></div>
+  <div class="cap" id="c_more" style="top:500px;padding:0 260px;line-height:1.25;font-size:80px;font-weight:700"></div>
 </div></div>
 <!-- SC8 -->
 <div class="scene light" id="sc8"><div class="cam">
   <div class="cap" id="c_test"></div>
-  <div class="pill" id="ask" style="left:560px;top:470px;width:800px;height:190px;font-size:66px">Pregúntame.</div>
+  <div class="pill" id="ask" style="left:560px;top:470px;width:800px;height:190px;font-size:66px">Ask me.</div>
   <svg id="cursor" width="60" height="80" viewBox="0 0 24 32" style="position:absolute;filter:drop-shadow(0 6px 10px rgba(0,0,0,.3))">
     <path d="M2 2 L2 26 L8 20 L12 30 L16 28 L12 18 L20 18 Z" fill="#111" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>
 </div></div>
@@ -122,7 +122,7 @@ const lerp = (a,b,x) => a+(b-a)*x;
 const css = (el, o) => { for (const k in o) el.style[k]=o[k]; };
 
 // accent words get the orange serif treatment in captions
-const ACCENT = {"menos.":1,"razón.":1,"así.":1,"destroza.":1,"9%.":1,"contraria.":1,"excusas.":1,"más.":1,"aprendido.":1};
+const ACCENT = {"less.":1,"right.":1,"that.":1,"apart.":1,"9%.":1,"back.":1,"excuses.":1,"harder.":1,"learned.":1};
 function buildCap(id, beat, dark){
   const el = $("c_"+id) || document.createElement("div");
   const words = beat.text.split(" ");
@@ -204,7 +204,7 @@ function seek(t){
     const w = B.parents.words, shrink = eo(P(t, w[w.length-2].at, w[w.length-1].at+0.6));
     const sz = 380*pop*lerp(1,0.42,shrink);
     const lab = $("b18l"), toBrain = P(t,B.parents.s+0.3,B.parents.s+0.6);
-    lab.textContent = toBrain>0.5 ? "cerebro" : "18";
+    lab.textContent = toBrain>0.5 ? "brain" : "18";
     lab.style.fontSize = (toBrain>0.5 ? 64*lerp(1,0.42,shrink) : 150*pop)+"px";
     lab.style.opacity = Math.abs(toBrain-0.5)*2;
     css($("b18"),{width:sz+"px",height:sz+"px",left:(960-sz/2)+"px",top:(600-sz/2+Math.sin(t*2)*6)+"px"});
@@ -233,7 +233,7 @@ function seek(t){
   drawCap("idea",t,B.destroy.s-0.05); drawCap("destroy",t);
   { const wp = eback(P(t,B.idea.s,B.idea.s+0.6));
     $("win").style.transform=`translateY(${(1-wp)*160}px) scale(${0.9+0.1*wp})`; $("win").style.opacity=clamp(wp);
-    const iw=B.idea.words; const m = eback(P(t,iw[5].at,iw[5].at+0.4));
+    const iw=B.idea.words; const m = eback(P(t,iw[6].at,iw[6].at+0.4));
     css($("m1"),{opacity:clamp(m),transform:`translateY(${(1-m)*30}px) scale(${0.9+0.1*m})`});
     const dw=B.destroy.words, n=dw.length;
     [["a1",0.15],["a2",0.45],["a3",0.75]].forEach(([id,f])=>{
@@ -247,7 +247,7 @@ function seek(t){
     const val = Math.round(lerp(40,9,cnt));
     $("mpill").textContent = val+"%";
     css($("mpill"),{opacity:clamp(fp),transform:`scale(${(0.6+0.4*fp)*(1-0.06*Math.sin(cnt*Math.PI*6)*(cnt<1?1:0))})`});
-    $("mlab").textContent = cnt>=1 ? "Margen real" : "Margen que creía";
+    $("mlab").textContent = cnt>=1 ? "Real margin" : "Margin I expected";
     $("mlab").style.opacity = clamp(fp);
     [["ch1",0.1,700],["ch2",0.35,960],["ch3",0.6,1180]].forEach(([id,f,x])=>{
       const at = ns+f*(ne-ns), c = P(t,at,at+1.1);

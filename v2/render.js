@@ -19,7 +19,7 @@ const fps = +(process.argv[2] || 30), stills = process.argv[3];
     }
     return b.close();
   }
-  const out = path.join(dir, '..', 'out', 'video_es_v2_screen.mp4');
+  const out = path.join(dir, '..', 'out', 'video_en_v2_screen.mp4');
   const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(fps), '-i', '-',
     '-i', path.join(build, 'voice.wav'), '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '18', '-preset', 'medium',
     '-af', 'loudnorm=I=-15:TP=-1.5,aresample=48000', '-c:a', 'aac', '-b:a', '192k', '-shortest', '-movflags', '+faststart', out],
